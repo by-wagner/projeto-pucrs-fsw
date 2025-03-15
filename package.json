@@ -1,0 +1,10 @@
+{
+  "name": "projeto-pucrs-fsw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "the-green-harvest/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true
+}
