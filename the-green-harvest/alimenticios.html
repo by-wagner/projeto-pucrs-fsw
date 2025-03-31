@@ -1,56 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Metadados básicos e responsividade -->
     <meta charset="UTF-8">
-    <title>Alimentícios (Produtos Não Perecíveis) - The Green Harvest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Green Harvest - Alimentícios</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg"/>
+    <!-- Bootstrap CSS para responsividade (opcional) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha512-..." crossorigin="anonymous"/>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Ícones do Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<!-- Barra de Saudação -->
+<div id="greeting" class="greeting-bar"></div>
 
-<header>
-    <h1>The Green Harvest</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="hortifruti.html">Hortifrúti (Frutas e Verduras)</a></li>
-            <li><a href="alimenticios.html">Alimentícios (Produtos Não Perecíveis)</a></li>
-            <li><a href="cuidados-pessoais.html">Cuidados Pessoais (Higiene e Limpeza)</a></li>
-            <li><a href="servicos.html">Serviços</a></li>
-        </ul>
-    </nav>
+<!-- Cabeçalho -->
+<header class="main-header">
+    <div class="container nav-container">
+        <!-- Seção esquerda: Logo e menu de navegação -->
+        <div class="header-left">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="./assets/img/logo.png" alt="The Green Harvest Logo">
+            </a>
+            <!-- Menu "Shop" com submenu dropdown -->
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Shop <i class="fa fa-caret-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="hortifruti.html">Hortifruti</a></li>
+                            <li><a href="alimenticios.html">Alimentícios</a></li>
+                            <li><a href="cuidados-pessoais.html">Cuidados Pessoais</a></li>
+                            <li><a href="servicos.html">Serviços</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Seção direita: Barra de busca e ícone do carrinho -->
+        <div class="header-right">
+            <!-- Barra de Busca com estilo minimalista -->
+            <div class="nav-search">
+                <form action="#" method="get">
+                    <input type="text" name="q" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- Ícone do Carrinho com contagem de itens -->
+            <div class="cart-icon">
+                <a href="#" aria-label="Carrinho de compras, 0 itens">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </header>
 
+<!-- Conteúdo Principal: Exibição dos produtos alimentícios -->
 <main>
-    <h2>Alimentícios (Produtos Não Perecíveis)</h2>
+    <!-- Título e descrição da categoria -->
+    <h1 class="text-center my-4">Alimentícios</h1>
+    <p class="categoria-desc text-center">Seleção de produtos alimentícios veganos.</p>
 
-    <!-- Produto 1: Sorvete Ben & Jerry's Strawberry Cheesecake -->
-    <section>
-        <h3>Sorvete Ben & Jerry's Strawberry Cheesecake</h3>
-        <img src="img/sorvete-cheesecake.jpg" width="200" height="200">
-        <p><strong>Descrição:</strong> Sorvete de cheesecake de morango (473ml).</p>
-        <p><strong>Valor:</strong> R$ 45,00</p>
-    </section>
+    <!-- Grid de produtos -->
+    <div class="products-grid">
+        <!-- Card de Produto: Sorvete Blueberry Orgânico -->
+        <div class="product-card">
+            <img src="./assets/img/icecream.png" alt="Sorvete Blueberry Orgânico 450g">
+            <h3>Sorvete Blueberry Orgânico</h3>
+            <p class="description">Sorvete Blueberry Orgânico, Sem Agrotóxicos, Vegano.</p>
+            <p class="price">R$ 45,00 <span class="unit">(450g)</span></p>
+            <!-- Controles de quantidade do produto -->
+            <div class="quantity-controls">
+                <button class="qty-btn qty-minus" aria-label="Diminuir quantidade">−</button>
+                <input type="number" class="qty-input" value="1" min="1" aria-label="Quantidade">
+                <button class="qty-btn qty-plus" aria-label="Aumentar quantidade">+</button>
+            </div>
+            <!-- Botão para adicionar ao carrinho -->
+            <button class="add-to-cart">Adicionar <i class="fa fa-shopping-cart"></i></button>
+        </div>
 
-    <!-- Produto 2: Milka Chocolate -->
-    <section>
-        <h3>Milka Chocolate</h3>
-        <img src="img/chocolate-milka.jpg" width="200" height="200">
-        <p><strong>Descrição:</strong> Barra de chocolate ao leite Milka (100g).</p>
-        <p><strong>Valor:</strong> R$ 12,00</p>
+        <!-- Card de Produto: Chocolate Orgânico -->
+        <div class="product-card">
+            <img src="./assets/img/chocolate.png" alt="Chocolate Orgânico Barra 300g">
+            <h3>Chocolate Orgânico</h3>
+            <p class="description">Chocolate Orgânico Barra 300g.</p>
+            <p class="price">R$ 23,00 <span class="unit">(300g)</span></p>
+            <!-- Controles de quantidade do produto -->
+            <div class="quantity-controls">
+                <button class="qty-btn qty-minus" aria-label="Diminuir quantidade">−</button>
+                <input type="number" class="qty-input" value="1" min="1" aria-label="Quantidade">
+                <button class="qty-btn qty-plus" aria-label="Aumentar quantidade">+</button>
+            </div>
+            <!-- Botão para adicionar ao carrinho -->
+            <button class="add-to-cart">Adicionar <i class="fa fa-shopping-cart"></i></button>
+        </div>
+    </div>
+
+    <!-- Seção de Categorias para navegação entre as páginas -->
+    <section class="category-section">
+        <h1 class="section-title">Categorias</h1>
+        <div class="container categories-container">
+            <!-- Link para a categoria Hortifruti -->
+            <a href="hortifruti.html" class="category-item">
+                <img src="./assets/img/fruit.png" alt="Hortifruti">
+                <span>Hortifruti</span>
+            </a>
+            <!-- Link para a categoria Alimentícios -->
+            <a href="alimenticios.html" class="category-item">
+                <img src="./assets/img/fresh.png" alt="Alimentícios">
+                <span>Alimentícios</span>
+            </a>
+            <!-- Link para a categoria Cuidados Pessoais -->
+            <a href="cuidados-pessoais.html" class="category-item">
+                <img src="./assets/img/skincare.png" alt="Cuidados Pessoais">
+                <span>Cuidados</span>
+            </a>
+            <!-- Link para a categoria Serviços -->
+            <a href="servicos.html" class="category-item">
+                <img src="./assets/img/services.png" alt="Serviços">
+                <span>Serviços</span>
+            </a>
+        </div>
     </section>
 </main>
 
-<footer>
-    <p>Autor do Site: Wagner Santos</p>
-    <p>Contato: (XX) XXXX-XXXX | email@exemplo.com</p>
-    <p>&copy; 2025 The Green Harvest</p>
-
-    <h3>Siga-nos nas Redes Sociais</h3>
-    <ul>
-        <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-        <li><a href="https://www.threads.net/" target="_blank">Threads</a></li>
-        <li><a href="https://www.pinterest.com/" target="_blank">Pinterest</a></li>
-    </ul>
+<!-- Rodapé -->
+<footer class="main-footer">
+    <div class="container footer-container">
+        <!-- Coluna com redes sociais -->
+        <div class="footer-col">
+            <h3>Siga-nos</h3>
+            <div class="social-links">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="bi bi-instagram" style="font-size:30px; margin-right: 12px; color:#ffffff;"></i>
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                    <i class="bi bi-tiktok" style="font-size:30px; margin-right: 12px; color:#ffffff;"></i>
+                </a>
+                <!-- Pinterest -->
+                <a href="https://www.pinterest.com" target="_blank" aria-label="Pinterest">
+                    <i class="bi bi-pinterest" style="font-size:30px; margin-right: 12px; color:#ffffff;"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Coluna com links de atendimento ao cliente -->
+        <div class="footer-col">
+            <h3>Customer Care</h3>
+            <p><a href="#">Sobre Nós</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Carreiras</a></p>
+            <p><a href="#">Sustentabilidade</a></p>
+        </div>
+        <!-- Coluna de inscrição na newsletter -->
+        <div class="footer-col">
+            <h3>Subscribe</h3>
+            <form action="https://usebasin.com/f/002f01353f73" method="POST" class="newsletter-form">
+                <div class="newsletter-search">
+                    <input type="email" id="newsletter-email" name="email" placeholder="Seu e-mail" required>
+                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Rodapé inferior -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 The Green Harvest. Todos os direitos reservados.</p>
+        <p class="autor">
+            Desenvolvido por
+            <a href="https://github.com/by-wagner" class="autor-link">Wagner Santos</a>
+        </p>
+    </div>
 </footer>
 
+<!-- Inclusão do script JavaScript customizado -->
+<script src="js/script.js"></script>
 </body>
 </html>

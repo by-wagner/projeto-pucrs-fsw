@@ -1,54 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Definições básicas de metadados e responsividade -->
     <meta charset="UTF-8">
-    <title>Serviços - The Green Harvest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Green Harvest - Serviços</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg"/>
+
+    <!-- Inclusão do CSS do Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha512-..." crossorigin="anonymous"/>
+
+    <!-- Inclusão do Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <!-- Inclusão dos ícones do Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<!-- Barra de Saudação -->
+<div id="greeting" class="greeting-bar"></div>
 
-<header>
-    <h1>The Green Harvest</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="hortifruti.html">Hortifrúti (Frutas e Verduras)</a></li>
-            <li><a href="alimenticios.html">Alimentícios (Produtos Não Perecíveis)</a></li>
-            <li><a href="cuidados-pessoais.html">Cuidados Pessoais (Higiene e Limpeza)</a></li>
-            <li><a href="servicos.html">Serviços</a></li>
-        </ul>
-    </nav>
+<!-- Cabeçalho -->
+<header class="main-header">
+    <div class="container nav-container">
+        <!-- Parte esquerda do cabeçalho: Logo e menu -->
+        <div class="header-left">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="./assets/img/logo.png" alt="The Green Harvest Logo">
+            </a>
+            <!-- Menu "Shop" com submenu dropdown -->
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Shop <i class="fa fa-caret-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="hortifruti.html">Hortifruti</a></li>
+                            <li><a href="alimenticios.html">Alimentícios</a></li>
+                            <li><a href="cuidados-pessoais.html">Cuidados Pessoais</a></li>
+                            <li><a href="servicos.html">Serviços</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Parte direita do cabeçalho: Busca e carrinho -->
+        <div class="header-right">
+            <!-- Barra de Busca -->
+            <div class="nav-search">
+                <form action="#" method="get">
+                    <input type="text" name="q" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- Ícone do Carrinho com contagem de itens -->
+            <div class="cart-icon">
+                <a href="#" aria-label="Carrinho de compras, 0 itens">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </header>
 
+<!-- Conteúdo Principal -->
 <main>
-    <h2>Serviços Disponíveis</h2>
+    <!-- Título e descrição da página de serviços -->
+    <h1 class="text-center my-4">Serviços</h1>
+    <p class="text-center">Agende seu atendimento: escolha entre Retirada na loja ou Entrega em domicílio.</p>
 
-    <!-- Serviço 1: Retirada no Local -->
-    <section>
-        <h3>Retirada no Local</h3>
-        <p><strong>Descrição:</strong> Faça seu pedido online e retire diretamente em nossa loja.</p>
-        <p><strong>Valor:</strong> R$ 0,00 (sem custo adicional)</p>
-    </section>
+    <!-- Formulário de Agendamento de Serviços -->
+    <form id="agendamento-form" class="service-form" action="https://usebasin.com/f/002f01353f73" method="POST">
+        <!-- Fieldset de Dados Pessoais -->
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" class="form-control" pattern="[0-9]{11}"
+                       title="Digite 11 dígitos (somente números)" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" class="form-control" pattern="^\d{11}$"
+                       title="Digite o DDD seguido do número (10 a 11 dígitos)" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="genero">Gênero:</label>
+                <select id="genero" name="genero" class="form-control" required>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Não-binário">Não-binário</option>
+                    <option value="Prefiro não dizer">Prefiro não dizer</option>
+                </select>
+            </div>
+        </fieldset>
 
-    <!-- Serviço 2: Delivery -->
-    <section>
-        <h3>Delivery</h3>
-        <p><strong>Descrição:</strong> Receba suas compras em casa, com toda a comodidade.</p>
-        <p><strong>Valor:</strong> R$ 10,00 (valor fixo) ou R$ 8,00 a R$ 15,00 dependendo da distância</p>
+        <!-- Fieldset de Agendamento -->
+        <fieldset>
+            <legend>Agendamento</legend>
+            <div class="form-group">
+                <span>Tipo de Serviço:</span><br>
+                <label>
+                    <input type="radio" name="servico" value="Retirada" required> Retirada na loja
+                </label>
+                <label>
+                    <input type="radio" name="servico" value="Entrega"> Entrega em domicílio
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="data">Data do Agendamento:</label>
+                <input type="date" id="data" name="data" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora do Agendamento:</label>
+                <input type="time" id="hora" name="hora" class="form-control" required>
+            </div>
+        </fieldset>
+
+        <!-- Botão de submissão do formulário -->
+        <button type="submit" class="btn agendar-btn">Agendar</button>
+    </form>
+
+    <!-- Seção de Categorias -->
+    <section class="category-section">
+        <h1 class="section-title">Categorias</h1>
+        <div class="container categories-container">
+            <!-- Categoria Hortifruti -->
+            <a href="hortifruti.html" class="category-item">
+                <img src="./assets/img/fruit.png" alt="Hortifruti">
+                <span>Hortifruti</span>
+            </a>
+            <!-- Categoria Alimentícios -->
+            <a href="alimenticios.html" class="category-item">
+                <img src="./assets/img/fresh.png" alt="Alimentícios">
+                <span>Alimentícios</span>
+            </a>
+            <!-- Categoria Cuidados Pessoais -->
+            <a href="cuidados-pessoais.html" class="category-item">
+                <img src="./assets/img/skincare.png" alt="Cuidados Pessoais">
+                <span>Cuidados</span>
+            </a>
+            <!-- Categoria Serviços -->
+            <a href="servicos.html" class="category-item">
+                <img src="./assets/img/services.png" alt="Serviços">
+                <span>Serviços</span>
+            </a>
+        </div>
     </section>
 </main>
 
-<footer>
-    <p>Autor do Site: Wagner Santos</p>
-    <p>Contato: (XX) XXXX-XXXX | email@exemplo.com</p>
-    <p>&copy; 2025 The Green Harvest</p>
-
-    <h3>Siga-nos nas Redes Sociais</h3>
-    <ul>
-        <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-        <li><a href="https://www.threads.net/" target="_blank">Threads</a></li>
-        <li><a href="https://www.pinterest.com/" target="_blank">Pinterest</a></li>
-    </ul>
+<!-- Rodapé -->
+<footer class="main-footer">
+    <div class="container footer-container">
+        <!-- Coluna: Redes Sociais -->
+        <div class="footer-col">
+            <h3>Siga-nos</h3>
+            <div class="social-links">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="bi bi-instagram" style="font-size:30px; margin-right: 12px; color:#ffffff;"></i>
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                    <i class="bi bi-tiktok" style="font-size:30px; margin-right: 12px; color:#ffffff;"></i>
+                </a>
+                <!-- Pinterest -->
+                <a href="https://www.pinterest.com" target="_blank" aria-label="Pinterest">
+                    <i class="bi bi-pinterest" style="font-size:30px; margin-right: 12px; color:#ffffff;"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Coluna: Customer Care -->
+        <div class="footer-col">
+            <h3>Customer Care</h3>
+            <p><a href="#">Sobre Nós</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Carreiras</a></p>
+            <p><a href="#">Sustentabilidade</a></p>
+        </div>
+        <!-- Coluna: Newsletter -->
+        <div class="footer-col">
+            <h3>Subscribe</h3>
+            <form action="https://usebasin.com/f/002f01353f73" method="POST" class="newsletter-form">
+                <div class="newsletter-search">
+                    <input type="email" id="newsletter-email" name="email" placeholder="Seu e-mail" required>
+                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Parte inferior do rodapé -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 The Green Harvest. Todos os direitos reservados.</p>
+        <p class="autor">
+            Desenvolvido por
+            <a href="https://github.com/by-wagner" class="autor-link">Wagner Santos</a>
+        </p>
+    </div>
 </footer>
 
+<!-- Inclusão do script JavaScript customizado -->
+<script src="js/script.js"></script>
 </body>
 </html>
